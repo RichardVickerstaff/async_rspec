@@ -1,0 +1,2 @@
+:map <leader>tt :w\|:silent !echo "rspec --color %" > commands<cr>:redraw!<cr>
+
