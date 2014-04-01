@@ -1,9 +1,12 @@
-#!/bin/bash
+#put this file in your bashrc
 
-if [ -p commands ]; then
-  rm commands
-fi
+function cat_fifo(){
+  fifo="$1"
+  if [ -p $fifo ]; then
+      rm $fifo
+    fi
 
-mkfifo commands
+    mkfifo $fifo
 
-while true; do sh -c '$(cat commands)'; done
+    while true; do sh -c "$(cat $fifo)"; done
+}
